@@ -259,8 +259,7 @@ end)
 local window = library:CreateWindow({
 Name = "Slavery Hub",
 Themeable = {
-Info = "Made by limbs_y#8227
-And Providence#7774",
+Info = "Made by limbs_y And Providence",
 Background = "rbxassetid://3899340550"
 }
 })
