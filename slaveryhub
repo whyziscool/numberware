@@ -290,7 +290,7 @@ local fallspeed = movementsection:AddSlider({
     Max = 150
 })
 local raisespeed = movementsection:AddSlider({
-    Name = "Nigga Chasing Fall Speed",
+    Name = "Nigga Chasing Up Speed",
     Flag = "FlyUpSpeed",
     Value = 85,
     Min = 0,
