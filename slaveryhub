@@ -1460,7 +1460,7 @@ local backpackAdded = function(tool)
             Title = "faggot Detected",
             Text = player.Name,
             Duration = 9e9,
-            Button1 = "OK"
+            Button1 = "fuck man this nigga gonna observe me"
         })
     end
 end
@@ -1512,7 +1512,7 @@ local playerAdded = function(player)
                 Title = "nigger Detected",
                 Text = player.Name.."\n("..player:GetRoleInGroup(creator)..")",
                 Duration = 9e9,
-                Button1 = "OK"
+                Button1 = "pls get this nigga out"
             })
         end
     end
