@@ -290,7 +290,7 @@ local fallspeed = movementsection:AddSlider({
     Max = 150
 })
 local raisespeed = movementsection:AddSlider({
-    Name = "Nigga Chasing Up Speed",
+    Name = "Nigga Chasing Fall Speed",
     Flag = "FlyUpSpeed",
     Value = 85,
     Min = 0,
@@ -1198,7 +1198,7 @@ local function checkArti(trinket)
         return
     end
     if trinket.ClickPart.Size == Vector3.new(1.5,1.5,1.5) then
-        addArtiEsp(trinket,"FairFrozen",Color3.fromRGB(0,255,255))
+        addArtiEsp(trinket,"Ice Essence",Color3.fromRGB(0,255,255))
         return
     end
     if trinket.ClickPart.Size == Vector3.new(0.65, 0.65, 0.65) then
@@ -1246,6 +1246,7 @@ end)
 trinketesp:AddToggle({
     Name = "Artifact ESP",
     Flag = "ArtiESPEnabled",
+    Keybind = Enum.KeyCode.Insert,
     Enabled = true,
     Callback = function(enabled)
         pcall(function()
@@ -1264,6 +1265,7 @@ trinketesp:AddToggle({
 trinketesp:AddToggle({
     Name = "Scroll ESP",
     Flag = "ScrollESPEnabled",
+    Keybind = Enum.KeyCode.Insert,
     Enabled = true,
     Callback = function(enabled)
         pcall(function()
