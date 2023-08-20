@@ -1,15 +1,15 @@
-if QUADHUB_LOADED then
+if NUMBERHUB_LOADED then
     game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Slavery Hub";
-        Text = "Slaves already captured";
+        Title = "Numberware";
+        Text = "Numberware loaded, have fun :D";
         Duration = 5;
     })
     while wait(30) do end
 end
-getgenv().QUADHUB_LOADED = true
+getgenv().NUMBERHUB_LOADED = true
 repeat wait(.5) until game:IsLoaded()
-_G.QUADHUB_UNLOADED = false
-_G.QUADHUB_INVIS = false
+_G.NUMBERHUB_UNLOADED = false
+_G.NUMBERHUB_INVIS = false
 
 local plr = game:GetService("Players").LocalPlayer
 local mouse = plr:GetMouse()
@@ -20,8 +20,8 @@ pcall(function() for _,v in next, getconnections(sc.Error) do v:Disable() end en
 
 if not _G.SKIP_INGAME_WAIT and not plr:FindFirstChild("Ingame") and not plr:FindFirstChild("InGame") then
     sg:SetCore("SendNotification", {
-        Title = "Slavery Hub";
-        Text = "Slavery Hub will not run in menu, please spawn in";
+        Title = "Numberware";
+        Text = "Numberware will not run in menu, please spawn in";
         Duration = 5;
     })
     repeat wait(.5) until plr:FindFirstChild("Ingame") or plr:FindFirstChild("InGame")
@@ -257,33 +257,33 @@ task.spawn(function()
 end)
 
 local window = library:CreateWindow({
-Name = "Slavery Hub",
+Name = "Numberware",
 Themeable = {
-Info = "Made by limbs_y And Providence",
+Info = "Made by sixdemises",
 Background = "rbxassetid://3899340550"
 }
 })
 
 local tab1 = window:CreateTab({Name = "Rogue Lineage"})
-local movementsection = tab1:CreateSection({Name = "Nigger Movement Detector"})
+local movementsection = tab1:CreateSection({Name = "Movement Detector"})
 local flytoggle = movementsection:AddToggle({
     Name = "Fly",
     Flag = "Fly1",
     Keybind = Enum.KeyCode.F3,
     Callback = function(val) end,
     UnloadFunc = function()
-        _G.QUADHUB_UNLOADED = true
+        _G.NUMBERHUB_UNLOADED = true
     end
 })
 local flyspeed = movementsection:AddSlider({
-    Name = "Nigga Chasing Speed",
+    Name = "Fly Speed",
     Flag = "FlySpeed",
     Value = 150,
     Min = 10,
     Max = tostring(game.PlaceId) ~= "12159215859" and 250 or 400
 })
 local fallspeed = movementsection:AddSlider({
-    Name = "Nigga Chasing Fall Speed",
+    Name = "Fall Speed",
     Flag = "FallSpeed",
     Value = 55,
     Min = 0,
@@ -297,7 +297,7 @@ local raisespeed = movementsection:AddSlider({
     Max = 150
 })
 local speedtoggle = movementsection:AddToggle({
-    Name = "Nigga Speed",
+    Name = "Speed",
     Flag = "Speed",
     Keybind = Enum.KeyCode.F4,
     Callback = function(val) end
@@ -465,7 +465,7 @@ if tostring(game.PlaceId) ~= "12159215859" then
         end
     })
     local disablebarrierstoggle = toggles:AddToggle({
-        Name = "Disable Nigger Protection",
+        Name = "Disable Orderly Barriers",
         Flag = "DisableBarriers",
         Value = false,
         Callback = function(val)
@@ -557,7 +557,7 @@ local showHealthBars = function(val)
 end
 
 local healthbartoggle = toggles:AddToggle({
-    Name = "Show Nigger Health",
+    Name = "Show NUMBERHUB Health",
     Flag = "ShowHealthBars",
     Value = true,
     Callback = showHealthBars
@@ -640,7 +640,7 @@ local attachtobackpart = misc:AddDropdown({
     Callback = function(val,oldval) end
 })
 local anchortorsotoggle = misc:AddToggle({
-    Name = "Nigger Anchor",
+    Name = "Anchor",
     Flag = "AnchorEnabled",
     Keybind = Enum.KeyCode.Z,
     Value = false,
@@ -651,7 +651,7 @@ local anchortorsotoggle = misc:AddToggle({
     end
 })
 local anchorpartdropdown = misc:AddDropdown({
-    Name = "Nigger To Anchor",
+    Name = "Anchor",
     Flag = "AnchorPart",
     List = {
         "Torso",
@@ -817,7 +817,7 @@ local invis = misc:AddButton({
             local tool = findItemWithHandle()
             if not tool then
                 sg:SetCore("SendNotification", {
-                    Title = "Slavery Hub",
+                    Title = "Numberware",
                     Text = "You must have a holdable item in your inventory to go invisible (weapon, ingredient, trinket, etc.)",
                     Duration = 5.5,
                     Button1 = "OK"
@@ -826,16 +826,16 @@ local invis = misc:AddButton({
             end
             disablecharacteractions = true
 
-            _G.QUADHUB_INVIS = true
+            _G.NUMBERHUB_INVIS = true
             task.spawn(function()
                 plr.CharacterRemoving:Wait()
                 FLYING = false
-                _G.QUADHUB_INVIS = false
+                _G.NUMBERHUB_INVIS = false
             end)
             task.spawn(function()
                 task.wait(1)
                 for i = 1,9e9 do
-                    if _G.QUADHUB_INVIS == false then break end
+                    if _G.NUMBERHUB_INVIS == false then break end
                     task.wait()
                     if hum.RequiresNeck ~= false then hum.RequiresNeck = false end
                 end
@@ -903,13 +903,13 @@ local respawn = misc:AddButton({
             if disablecharacteractions then return end
             local char = plr.Character
             if not char then return end
-            if _G.QUADHUB_INVIS == true then
+            if _G.NUMBERHUB_INVIS == true then
                 disablecharacteractions = true
                 plr:Kick("Instant Log")
                 task.wait()
                 COREGUI.RobloxPromptGui.promptOverlay.ErrorPrompt.TitleFrame.ErrorTitle.TextColor3 = Color3.new(1,0,0)
                 COREGUI.RobloxPromptGui.promptOverlay.ErrorPrompt.MessageArea.ErrorFrame.ErrorMessage.TextColor3 = Color3.new(1,0,0)
-                COREGUI.RobloxPromptGui.promptOverlay.ErrorPrompt.TitleFrame.ErrorTitle.Text = "Slavery Hub"
+                COREGUI.RobloxPromptGui.promptOverlay.ErrorPrompt.TitleFrame.ErrorTitle.Text = "Numberware"
                 COREGUI.RobloxPromptGui.promptOverlay.ErrorPrompt.MessageArea.ErrorFrame.ErrorMessage.Text = "You must rejoin to exit invisibility"
                 return
             end
@@ -1019,7 +1019,7 @@ local playeresp = esptab:CreateSection({Name = "Players",Side = "Left"})
 
 local unnamedloaded = false
 playeresp:AddButton({
-    Name = "Unnamed ESP",
+    Name = "ESP",
     Callback = function()
         if unnamedloaded == true then return end
         unnamedloaded = true
@@ -1029,7 +1029,7 @@ playeresp:AddButton({
 })
 
 esplib.initmodule(false,PARENT)
-local playerlib = esplib.init("quadhub_playeresp",false);
+local playerlib = esplib.init("NUMBERHUB_playeresp",false);
 
 players.PlayerAdded:Connect(function(v)
     pcall(function()
@@ -1091,7 +1091,7 @@ playeresp:AddToggle({
     Enabled = true,
     Callback = function(enabled)
         pcall(function() playerlib.Enabled = enabled end)
-        for _,v in pairs(PARENT.quadhub_playeresp:GetDescendants()) do
+        for _,v in pairs(PARENT.NUMBERHUB_playeresp:GetDescendants()) do
             pcall(function()
                 v.Visible = enabled
             end)
@@ -1108,7 +1108,7 @@ playeresp:AddSlider({
     Min = 1,
     Max = 48,
     Callback = function(val)
-        for _,v in pairs(PARENT.quadhub_playeresp:GetDescendants()) do
+        for _,v in pairs(PARENT.NUMBERHUB_playeresp:GetDescendants()) do
             pcall(function()
                 v.TextSize = val
             end)
@@ -1120,7 +1120,7 @@ playeresp:AddColorpicker({
     Flag = "PlayerEspTextColor",
     Value = Color3.new(1,0,0),
     Callback = function(color)
-        for _,v in pairs(PARENT.quadhub_playeresp:GetDescendants()) do
+        for _,v in pairs(PARENT.NUMBERHUB_playeresp:GetDescendants()) do
             pcall(function()
                 v.TextColor3 = color
             end)
@@ -1132,7 +1132,7 @@ playeresp:AddColorpicker({
     Flag = "PlayerEspHighlightColor",
     Value = Color3.new(1,0,0),
     Callback = function(color)
-        for _,v in pairs(PARENT.quadhub_playeresp:GetDescendants()) do
+        for _,v in pairs(PARENT.NUMBERHUB_playeresp:GetDescendants()) do
             pcall(function()
                 v.OutlineColor = color
             end)
@@ -1141,8 +1141,8 @@ playeresp:AddColorpicker({
 })
 -------------------------------------------------------------------------
 local trinketesp = esptab:CreateSection({Name = "Trinkets",Side = "Right"})
-local artilib = esplib.init("quadhub_artifactesp",false);
-local scrolllib = esplib.init("quadhub_scrollesp",false);
+local artilib = esplib.init("NUMBERHUB_artifactesp",false);
+local scrolllib = esplib.init("NUMBERHUB_scrollesp",false);
 
 local function addArtiEsp(trinket,trinketName,color)
     if not esplib.index[trinket] then
@@ -1250,7 +1250,7 @@ trinketesp:AddToggle({
     Enabled = true,
     Callback = function(enabled)
         pcall(function()
-            for _,v in pairs(PARENT.quadhub_artifactesp:GetDescendants()) do
+            for _,v in pairs(PARENT.NUMBERHUB_artifactesp:GetDescendants()) do
                 pcall(function()
                     v.Visible = enabled
                 end)
@@ -1269,7 +1269,7 @@ trinketesp:AddToggle({
     Enabled = true,
     Callback = function(enabled)
         pcall(function()
-            for _,v in pairs(PARENT.quadhub_scrollesp:GetDescendants()) do
+            for _,v in pairs(PARENT.NUMBERHUB_scrollesp:GetDescendants()) do
                 pcall(function()
                     v.Visible = enabled
                 end)
@@ -1311,7 +1311,7 @@ local lastGlobalShadowsUpdate = tick()
 local heartbeat
 heartbeat = game:GetService("RunService").Heartbeat:Connect(function()
     local s,e = pcall(function()
-        if _G.QUADHUB_UNLOADED then pcall(function() heartbeat:Disconnect() end) end
+        if _G.NUMBERHUB_UNLOADED then pcall(function() heartbeat:Disconnect() end) end
 
         local char = plr.Character
         if not char then return end
@@ -1430,7 +1430,7 @@ local s,e = pcall(function()
             task.wait()
             COREGUI.RobloxPromptGui.promptOverlay.ErrorPrompt.TitleFrame.ErrorTitle.TextColor3 = Color3.new(1,0,0)
             COREGUI.RobloxPromptGui.promptOverlay.ErrorPrompt.MessageArea.ErrorFrame.ErrorMessage.TextColor3 = Color3.new(1,0,0)
-            COREGUI.RobloxPromptGui.promptOverlay.ErrorPrompt.TitleFrame.ErrorTitle.Text = "Slavery Hub"
+            COREGUI.RobloxPromptGui.promptOverlay.ErrorPrompt.TitleFrame.ErrorTitle.Text = "Numberware"
             COREGUI.RobloxPromptGui.promptOverlay.ErrorPrompt.MessageArea.ErrorFrame.ErrorMessage.Text = "Instant Log"
         end
     end)
@@ -1547,7 +1547,7 @@ local mt = getrawmetatable(game)
 setreadonly(mt,false)
 local oldnewindex
 oldnewindex = hookmetamethod(game, "__newindex", newcclosure(function(self,prop,val)
-    if not checkcaller() and not _G.QUADHUB_UNLOADED then
+    if not checkcaller() and not _G.NUMBERHUB_UNLOADED then
         if self.Name == "Lighting" then
             if prop == "FogEnd" and library.flags["NoFog"] then
                 return oldnewindex(self,prop,999999999)
@@ -1575,7 +1575,7 @@ local hook = hookfunction or detour_function
 local old
 old = hook(Instance.new("RemoteEvent").FireServer,function(self,...)
     local args = {...}
-    if not _G.QUADHUB_UNLOADED and plr.Character ~= nil and plr.Character:FindFirstChild("CharacterHandler") and plr.Character.CharacterHandler:FindFirstChild("Remotes") and self.Parent == plr.Character.CharacterHandler.Remotes and (self.Name == "ApplyFallDamage" or self.Name == "FallDamage" or self.Name == "ApplyFall" or self.Name == "Fall") then
+    if not _G.NUMBERHUB_UNLOADED and plr.Character ~= nil and plr.Character:FindFirstChild("CharacterHandler") and plr.Character.CharacterHandler:FindFirstChild("Remotes") and self.Parent == plr.Character.CharacterHandler.Remotes and (self.Name == "ApplyFallDamage" or self.Name == "FallDamage" or self.Name == "ApplyFall" or self.Name == "Fall") then
         if not checkcaller() and library.flags["NoFall"] and #args == 1 and typeof(args[1]) == "number" and math.floor(args[1]) ~= args[1] then
             return nil
         end
